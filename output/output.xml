@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.16 on linux)" generated="20230409 16:12:48.987" rpa="false">
+<suite id="s1" name="Test Browser" source="/home/danisku/api_testing/wp_project/tests/test_browser.robot">
+<test id="s1-t1" name="WordPress Login">
+<kw name="Open URL in Browser" library="resources">
+<arguments>
+<arg>wp-login.php</arg>
+</arguments>
+<msg timestamp="20230409 16:12:49.139" level="TRACE">Arguments: [ ${url}='wp-login.php' ]</msg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${wp_url}/${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20230409 16:12:49.139" level="TRACE">Arguments: [ 'http://localhost/dvc/api-testing//wp-login.php' | 'chrome' ]</msg>
+<msg timestamp="20230409 16:12:49.139" level="INFO">Opening browser 'chrome' to base url 'http://localhost/dvc/api-testing//wp-login.php'.</msg>
+<msg timestamp="20230409 16:12:50.146" level="DEBUG">POST http://127.0.0.1:59929/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": []}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": []}}}</msg>
+<msg timestamp="20230409 16:12:50.147" level="DEBUG">Starting new HTTP connection (1): 127.0.0.1:59929</msg>
+<msg timestamp="20230409 16:12:50.637" level="DEBUG">http://127.0.0.1:59929 "POST /session HTTP/1.1" 200 821</msg>
+<msg timestamp="20230409 16:12:50.638" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:50.638" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/timeouts {"script": 5000}</msg>
+<msg timestamp="20230409 16:12:50.639" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20230409 16:12:50.639" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:50.639" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/timeouts {"implicit": 0}</msg>
+<msg timestamp="20230409 16:12:50.640" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20230409 16:12:50.640" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:50.640" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/url {"url": "http://localhost/dvc/api-testing//wp-login.php"}</msg>
+<msg timestamp="20230409 16:12:53.102" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20230409 16:12:53.102" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.102" level="DEBUG">Opened browser with session id 5d2ac84e5a781c0cc3114c7c23d46c05.</msg>
+<msg timestamp="20230409 16:12:53.102" level="TRACE">Return: 1</msg>
+<status status="PASS" starttime="20230409 16:12:49.139" endtime="20230409 16:12:53.103"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<msg timestamp="20230409 16:12:53.103" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20230409 16:12:53.103" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/window/maximize {}</msg>
+<msg timestamp="20230409 16:12:53.259" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/window/maximize HTTP/1.1" 200 52</msg>
+<msg timestamp="20230409 16:12:53.259" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.259" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20230409 16:12:53.103" endtime="20230409 16:12:53.259"></status>
+</kw>
+<msg timestamp="20230409 16:12:53.259" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20230409 16:12:49.138" endtime="20230409 16:12:53.259"></status>
+</kw>
+<kw name="Send WP Login Credentials" library="resources">
+<arguments>
+<arg>${wp_user}</arg>
+<arg>${wp_pass}</arg>
+</arguments>
+<msg timestamp="20230409 16:12:53.260" level="TRACE">Arguments: [ ${user}='danisku' | ${pass}='&amp;toYPAS0ByPjFmyVgy' ]</msg>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${input_text}</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20230409 16:12:53.260" level="TRACE">Arguments: [ '//*[@id="user_login"]' | 'danisku' ]</msg>
+<msg timestamp="20230409 16:12:53.261" level="INFO">Typing text 'danisku' into text field '//*[@id="user_login"]'.</msg>
+<msg timestamp="20230409 16:12:53.261" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/elements {"using": "xpath", "value": "//*[@id=\"user_login\"]"}</msg>
+<msg timestamp="20230409 16:12:53.271" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20230409 16:12:53.271" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.271" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/element/926de34e-916e-410e-8316-ba1351c0ee5c/clear {"id": "926de34e-916e-410e-8316-ba1351c0ee5c"}</msg>
+<msg timestamp="20230409 16:12:53.308" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/element/926de34e-916e-410e-8316-ba1351c0ee5c/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20230409 16:12:53.308" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.309" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/element/926de34e-916e-410e-8316-ba1351c0ee5c/value {"text": "danisku", "value": ["d", "a", "n", "i", "s", "k", "u"], "id": "926de34e-916e-410e-8316-ba1351c0ee5c"}</msg>
+<msg timestamp="20230409 16:12:53.331" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/element/926de34e-916e-410e-8316-ba1351c0ee5c/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20230409 16:12:53.331" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.331" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20230409 16:12:53.260" endtime="20230409 16:12:53.331"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${input_pass}</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20230409 16:12:53.331" level="TRACE">Arguments: [ '//*[@id="user_pass"]' | '&amp;toYPAS0ByPjFmyVgy' ]</msg>
+<msg timestamp="20230409 16:12:53.331" level="INFO">Typing password into text field '//*[@id="user_pass"]'.</msg>
+<msg timestamp="20230409 16:12:53.332" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/elements {"using": "xpath", "value": "//*[@id=\"user_pass\"]"}</msg>
+<msg timestamp="20230409 16:12:53.341" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20230409 16:12:53.341" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.341" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/element/490d85d1-5798-4fe3-ae5c-c7a06e638b1e/clear {"id": "490d85d1-5798-4fe3-ae5c-c7a06e638b1e"}</msg>
+<msg timestamp="20230409 16:12:53.365" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/element/490d85d1-5798-4fe3-ae5c-c7a06e638b1e/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20230409 16:12:53.365" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.366" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230409 16:12:53.408" level="INFO">Log level changed from NONE to TRACE.</msg>
+<msg timestamp="20230409 16:12:53.408" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20230409 16:12:53.331" endtime="20230409 16:12:53.408"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${submit_button}</arg>
+</arguments>
+<msg timestamp="20230409 16:12:53.408" level="TRACE">Arguments: [ '//*[@id="wp-submit"]' ]</msg>
+<msg timestamp="20230409 16:12:53.408" level="INFO">Clicking button '//*[@id="wp-submit"]'.</msg>
+<msg timestamp="20230409 16:12:53.408" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/elements {"using": "xpath", "value": "//*[@id=\"wp-submit\"]"}</msg>
+<msg timestamp="20230409 16:12:53.417" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20230409 16:12:53.417" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.418" level="DEBUG">GET http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/element/17ecf411-dbc3-4709-9634-d9f3df73ad48/name {"id": "17ecf411-dbc3-4709-9634-d9f3df73ad48"}</msg>
+<msg timestamp="20230409 16:12:53.423" level="DEBUG">http://127.0.0.1:59929 "GET /session/5d2ac84e5a781c0cc3114c7c23d46c05/element/17ecf411-dbc3-4709-9634-d9f3df73ad48/name HTTP/1.1" 200 17</msg>
+<msg timestamp="20230409 16:12:53.423" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:53.423" level="DEBUG">POST http://127.0.0.1:59929/session/5d2ac84e5a781c0cc3114c7c23d46c05/element/17ecf411-dbc3-4709-9634-d9f3df73ad48/click {"id": "17ecf411-dbc3-4709-9634-d9f3df73ad48"}</msg>
+<msg timestamp="20230409 16:12:54.999" level="DEBUG">http://127.0.0.1:59929 "POST /session/5d2ac84e5a781c0cc3114c7c23d46c05/element/17ecf411-dbc3-4709-9634-d9f3df73ad48/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20230409 16:12:55.000" level="DEBUG">Finished Request</msg>
+<msg timestamp="20230409 16:12:55.000" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20230409 16:12:53.408" endtime="20230409 16:12:55.000"></status>
+</kw>
+<msg timestamp="20230409 16:12:55.000" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20230409 16:12:53.260" endtime="20230409 16:12:55.000"></status>
+</kw>
+<status status="PASS" starttime="20230409 16:12:49.137" endtime="20230409 16:12:55.000" critical="yes"></status>
+</test>
+<doc>WordPress create users</doc>
+<status status="PASS" starttime="20230409 16:12:48.989" endtime="20230409 16:12:55.001"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Test Browser">Test Browser</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

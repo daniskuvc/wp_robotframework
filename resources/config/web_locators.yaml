@@ -1,0 +1,3 @@
+input_text:  //*[@id="user_login"]
+input_pass:  //*[@id="user_pass"]
+submit_button:  //*[@id="wp-submit"]

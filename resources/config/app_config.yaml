@@ -1,0 +1,6 @@
+wp_url: http://localhost/dvc/api-testing/
+wp_user: danisku
+wp_pass: '&toYPAS0ByPjFmyVgy'
+browser: chrome
+
+wp_ep_url: ${wp_url}/wp-json/wp/v2
